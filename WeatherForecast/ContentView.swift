@@ -9,10 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        Text("Weather for this week")
+            .font(Font.title)
+            .fontWeight(Font.Weight.bold)
+            .padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
         HStack {
             DayForecast(day: "Mon", isRainy: false, high: 70, low: 50)
             
             DayForecast(day: "Tue", isRainy: true, high: 60, low: 40)
+            
+            DayForecast(day: "Mon", isRainy: false, high: 70, low: 50)
+            
+            DayForecast(day: "Tue", isRainy: true, high: 60, low: 40)
+            
+            DayForecast(day: "Mon", isRainy: false, high: 70, low: 50)
+            
+            
         }
     }
 }
@@ -37,18 +50,17 @@ struct DayForecast: View {
     var body: some View {
         VStack {
             Text(day)
-                .font(Font.headline)
+                .font(Font.subheadline)
             Image(systemName: iconName)
                 .foregroundStyle(iconColor)
-                .font(Font.largeTitle)
-                .padding(5)
-            Text("High: \( Text("\(high)º").foregroundStyle(highColor))")
+                .font(Font.title2)
+            Text("H: \( Text("\(high)º").foregroundStyle(highColor))")
                 .fontWeight(Font.Weight.semibold)
-            Text("Low: \(low)º")
+            Text("L: \(low)º")
                 .fontWeight(Font.Weight.medium)
                 .foregroundStyle(Color.secondary)
         }
-        .padding()
+        .padding(5)
     }
 }
 
