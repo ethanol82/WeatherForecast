@@ -9,24 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Weather for this week")
-            .font(Font.title)
-            .fontWeight(Font.Weight.bold)
-            .padding(20)
-            .frame(maxWidth: .infinity, alignment: .leading)
-        HStack {
-            DayForecast(day: "Mon", isRainy: false, high: 70, low: 50)
+        VStack {
+            Text("Weather for this week")
+                .font(Font.title)
+                .fontWeight(Font.Weight.bold)
+                .padding(20)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .border(.orange)
             
-            DayForecast(day: "Tue", isRainy: true, high: 60, low: 40)
-            
-            DayForecast(day: "Mon", isRainy: false, high: 70, low: 50)
-            
-            DayForecast(day: "Tue", isRainy: true, high: 60, low: 40)
-            
-            DayForecast(day: "Mon", isRainy: false, high: 70, low: 50)
-            
-            
+            HStack(spacing: 8) {
+                DayForecast(day: "Mon", isRainy: false, high: 70, low: 50)
+                
+                DayForecast(day: "Tue", isRainy: true, high: 60, low: 40)
+                
+                DayForecast(day: "Wed", isRainy: true, high: 40, low: 32)
+                
+                DayForecast(day: "Thu", isRainy: true, high: 60, low: 40)
+                
+                DayForecast(day: "Fri", isRainy: false, high: 70, low: 50)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal)
+            Spacer()
         }
+        .padding(.top, 50)
+        
+        
     }
 }
 struct DayForecast: View {
@@ -61,6 +69,8 @@ struct DayForecast: View {
                 .foregroundStyle(Color.secondary)
         }
         .padding(5)
+        .frame(width: 70, height: 100)
+        .border(.blue)
     }
 }
 
