@@ -22,6 +22,10 @@ struct DayForecast: View {
     let high: Int
     let low: Int
     
+    var highColor: Color {
+        high > 60 ? Color.red : Color.black
+    }
+    
     var iconName: String {
         isRainy ? "cloud.rain.fill" : "sun.max.fill"
     }
@@ -38,7 +42,7 @@ struct DayForecast: View {
                 .foregroundStyle(iconColor)
                 .font(Font.largeTitle)
                 .padding(5)
-            Text("High: \(high)º")
+            Text("High: \( Text("\(high)º").foregroundStyle(highColor))")
                 .fontWeight(Font.Weight.semibold)
             Text("Low: \(low)º")
                 .fontWeight(Font.Weight.medium)
